@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>User menu</title>
+{% extends 'main/layout.html' %}
 
-</head>
-<body>
+{% block title %}
+    <title>User menu</title>
+{% endblock %}
+
+{% block content %}
     <h1>Головне меню користувача</h1>
-    <a href="account">Акаунт</a>
-    <a href="shop">Магазин</a>
-    <a>Історія покупок</a>
-</body>
-</html>
+    <a href="account"> <i class="fa-solid fa-circle-user"></i> Акаунт</a>
+    <a href="shop"> <i class="fa-solid fa-cart-shopping"></i> Магазин</a>
+    <a href="history"> <i class="fa-solid fa-clock-rotate-left"></i> Історія покупок</a>
+{% endblock %}

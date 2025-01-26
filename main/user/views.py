@@ -3,13 +3,17 @@ from django.shortcuts import render
 # Create your views here.
 
 
-def user_menu(request):
+def show_user_menu(request):
     return render(request, 'user/user_menu.html')
 
 
-def account(request):
+def show_account(request):
     return render(request, 'user/account.html')
 
 
-def shop(request):
+def show_shop(request):
     return render(request, 'user/shop.html')
+
+
+def show_history(request):
+    return render(request, 'user/history.html')

@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Account</title>
+{% extends 'main/layout.html' %}
 
-</head>
-<body>
+{% block title %}
+    <title>Account</title>
+{% endblock %}
+
+{% block content %}
     <h1>Ваш акаунт</h1>
     <ul>
         <li>Ім'я: ...</li>
@@ -15,5 +14,6 @@
         <li>Номер телефону: ...</li>
         <li>Країна: ...</li>
     </ul>
-</body>
-</html>
+
+    <a href="{% url 'user_menu' %}">Назад</a>
+{% endblock %}

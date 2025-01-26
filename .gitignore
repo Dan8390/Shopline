@@ -1,1 +1,4 @@
 /main/main/settings.py
+/main/main/wsgi.py
+/main/db.sqlite3
+/main/user/migrations/__init__.py

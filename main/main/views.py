@@ -1,5 +1,5 @@
 from django.shortcuts import render
 
 
-def welcome_page(request):
+def show_welcome_page(request):
     return render(request, 'main/welcome_page.html')
