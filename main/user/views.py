@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Product
 
 # Create your views here.
 
@@ -12,7 +13,12 @@ def show_account(request):
 
 
 def show_shop(request):
-    return render(request, 'user/shop.html')
+    products = Product.objects.all()
+    return render(request, 'user/shop.html', {'products': products})
+
+
+def show_producers(request):
+    return render(request, "user/producers.html")
 
 
 def show_history(request):

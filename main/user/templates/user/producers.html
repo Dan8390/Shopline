@@ -1,0 +1,20 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}
+    <title>Producers</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Виробники, чиї товари Ви купуєте</h1>
+    <ul>
+        <li>Назва: ...</li>
+        <li>Країна: ...</li>
+        <li>Товари: ...</li>
+        <li>Опис: ...</li>
+        <li>Офіційний сайт: ...</li>
+        <li>Електронна пошта: ...</li>
+        <li>Телефонні номери: ...</li>
+    </ul>
+
+    <a href="{% url 'user_menu' %}">Назад</a>
+{% endblock %}
