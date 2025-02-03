@@ -5,15 +5,14 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Ваш акаунт</h1>
-    <ul>
-        <li>Username: ...</li>
-        <li>Ім'я: ...</li>
-        <li>Прізвище: ...</li>
-        <li>Електронна пошта: ...</li>
-        <li>Номер телефону: ...</li>
-        <li>Країна: ...</li>
-    </ul>
+    <h1>Ваш акаунт</h1><br>
+    <h6>Username: {{user.username}}</h6>
+    <h6>Ім'я: {{user.name}}</h6>
+    <h6>Прізвище: {{user.surname}}</h6>
+    <h6>Електронна пошта: {{user.email}}</h6>
+    <h6>Номер телефону: {{user.phone}}</h6>
+    <h6>Країна: {{user.country}}</h6>
+    <h6>Покупки: {{user.bought_products}}</h6>
 
     <a href="{% url 'user_menu' %}">Назад</a>
 {% endblock %}
