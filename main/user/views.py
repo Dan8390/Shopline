@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import User, Product
 from .forms import UserForm
+from django.http import HttpResponse
 
 # Create your views here.
 
@@ -16,8 +17,28 @@ def show_account(request, user_id):
 
 
 def show_shop(request, user_id):
-    products = Product.objects.all()
-    return render(request, 'user/shop.html', {'products': products})
+    user = get_object_or_404(User, id=user_id)
+    all_products = Product.objects.all()
+    products_to_show = []
+    for i in all_products:
+        if i.amount > 0:
+            products_to_show.append(i)
+
+    if request.method == 'POST':
+        product_id = request.POST.get('product_id')
+        try:
+            product = Product.objects.get(id=product_id)
+            product.amount -= 1
+            if user.bought_products:
+                user.bought_products += (', ' + product.title)
+            else:
+                user.bought_products = product.title
+            product.save()
+            user.save()
+            return redirect('shop', user_id=user_id)
+        except:
+            return HttpResponse('<h1>Товар не знайдений</h1>', status=404)
+    return render(request, 'user/shop.html', {'products': products_to_show, 'user_id': user_id})
 
 
 def show_producers(request, user_id):
@@ -25,7 +46,10 @@ def show_producers(request, user_id):
 
 
 def show_history(request, user_id):
-    return render(request, 'user/history.html')
+    user = get_object_or_404(User, id=user_id)
+    products_str = user.bought_products
+    products = products_str.split(', ')
+    return render(request, 'user/history.html', {'products': products, 'user_id': user_id})
 
 
 def show_login(request):

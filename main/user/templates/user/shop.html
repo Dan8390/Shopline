@@ -5,16 +5,22 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Магазин</h1>
-    <h3>Доступні товари</h3><br>
+    <h1>Магазин</h1><br>
     {% for product in products %}
     <div>
-        <h4>{{product.title}}</h4>
+        <h3>{{product.title}}</h3>
         <h6>Категорія: {{product.category}}</h6>
         <h6>Ціна: {{product.price}}</h6>
         <h6>Виробник: {{product.producer}}</h6>
         <h6>Опис: {{product.description}}</h6>
         <h6>Є в наявності: {{product.amount}}</h6><br>
+        <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="product_id" value="{{product.id}}">
+            <button type="submit">Купити</button>
+        </form>
+        <br>
+        <br>
     </div>
     {% endfor %}
 

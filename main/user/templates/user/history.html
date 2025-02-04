@@ -5,15 +5,18 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Нещодавні покупки</h1>
-    <ul>
-        <li>Назва: ...</li>
-        <li>Категорія: ...</li>
-        <li>Ціна: ...</li>
-        <li>Опис: ...</li>
-        <li>Виробник: ...</li>
-        <li>Є в наявності: ...</li>
-    </ul>
+    <h1>Нещодавні покупки</h1><br><br>
+
+{% for product in products %}
+<div>
+    <h3>{{product.title}}</h3>
+    <form>
+        <button type="submit">Детальніше</button><br><br>
+    </form>
+</div>
+{% endfor %}
+
+    <a href="shop">До магазину</a><br><br>
 
     <a href="{% url 'user_menu' %}">Назад</a>
 {% endblock %}
