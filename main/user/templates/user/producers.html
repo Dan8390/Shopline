@@ -6,15 +6,17 @@
 
 {% block content %}
     <h1>Виробники, чиї товари Ви купуєте</h1>
-    <ul>
-        <li>Назва: ...</li>
-        <li>Країна: ...</li>
-        <li>Товари: ...</li>
-        <li>Опис: ...</li>
-        <li>Офіційний сайт: ...</li>
-        <li>Електронна пошта: ...</li>
-        <li>Телефонні номери: ...</li>
-    </ul>
+
+{% for product in products %}
+<div>
+    <h3>{{product.producer}}</h3><br>
+    <form>
+        <button type="submit">Детальніше</button>
+    </form>
+    <br>
+    <br>
+</div>
+{% endfor %}
 
     <a href="{% url 'user_menu' %}">Назад</a>
 {% endblock %}

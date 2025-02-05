@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import User, Product
+from .models import User, Product, Producer
 from .forms import UserForm
 from django.http import HttpResponse
 
@@ -42,7 +42,10 @@ def show_shop(request, user_id):
 
 
 def show_producers(request, user_id):
-    return render(request, "user/producers.html")
+    user = get_object_or_404(User, id=user_id)
+    products_str = user.bought_products
+    products = products_str.split(', ')
+    return render(request, "user/producers.html", {'products': products, 'user_id': user_id})
 
 
 def show_history(request, user_id):
