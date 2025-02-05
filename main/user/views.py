@@ -13,7 +13,7 @@ def show_user_menu(request, user_id):
 
 def show_account(request, user_id):
     user = get_object_or_404(User, id=user_id)
-    return render(request, 'user/account.html', {'user': user})
+    return render(request, 'user/account.html', {'user': user, 'user_id': user_id})
 
 
 def show_shop(request, user_id):

@@ -14,5 +14,5 @@
     <h6>Країна: {{user.country}}</h6>
     <h6>Покупки: {{user.bought_products}}</h6>
 
-    <a href="{% url 'user_menu' %}">Назад</a>
+    <a href="{% url 'user_menu' user_id=user_id %}">Назад</a>
 {% endblock %}
