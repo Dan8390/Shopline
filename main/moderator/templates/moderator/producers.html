@@ -1,0 +1,26 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}
+    <title>Producers</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Виробники</h1><br>
+    {% for producer in producers %}
+    <div>
+        <h3>{{producer.title}}</h3>
+        <h6>Країна: {{producer.country}}</h6>
+        <h6>Товари: {{producer.products}}</h6>
+        <h6>Опис: {{producer.description}}</h6>
+        <h6>Офіційний сайт: {{producer.site}}</h6>
+        <h6>Електронна пошта: {{producer.email}}</h6>
+        <h6>Телефонні номери: {{producer.phone_numbers}}</h6>
+
+        <a href="{% url 'producer_delete' producer.id %}">Видалити виробника</a>
+        <br>
+        <br>
+    </div>
+    {% endfor %}
+
+    <a href="{% url 'show_index' %}">Назад</a>
+{% endblock %}

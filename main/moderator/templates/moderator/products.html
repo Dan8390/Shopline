@@ -1,10 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Shop</title>
-</head>
-<body>
+{% extends 'main/layout.html' %}
 
-</body>
-</html>
+{% block title %}
+    <title>Products</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Магазин</h1><br>
+    {% for product in products %}
+    <div>
+        <h3>{{product.title}}</h3>
+        <h6>Категорія: {{product.category}}</h6>
+        <h6>Ціна: {{product.price}}</h6>
+        <h6>Виробник: {{product.producer}}</h6>
+        <h6>Опис: {{product.description}}</h6>
+        <h6>Є в наявності: {{product.amount}}</h6>
+
+        <a href="{% url 'product_delete' product.id %}">Видалити товар</a>
+
+        <br>
+        <br>
+    </div>
+    {% endfor %}
+
+    <a href="{% url 'show_index' %}">Назад</a>
+{% endblock %}
