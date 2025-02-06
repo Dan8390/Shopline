@@ -5,11 +5,12 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Виробники, чиї товари Ви купуєте</h1>
+    <h1>Виробники, чиї товари Ви купуєте</h1><br>
+    <a href="{% url 'user_menu' user_id=user_id %}">Назад</a><br><br>
 
-{% for product in products %}
+{% for producer in producers %}
 <div>
-    <h3>{{product.producer}}</h3><br>
+    <h3>{{producer.title}}</h3><br>
     <form>
         <button type="submit">Детальніше</button>
     </form>
@@ -18,5 +19,4 @@
 </div>
 {% endfor %}
 
-    <a href="{% url 'user_menu' user_id=user_id %}">Назад</a>
 {% endblock %}

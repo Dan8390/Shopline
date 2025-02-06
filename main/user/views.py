@@ -43,9 +43,16 @@ def show_shop(request, user_id):
 
 def show_producers(request, user_id):
     user = get_object_or_404(User, id=user_id)
-    products_str = user.bought_products
-    products = products_str.split(', ')
-    return render(request, "user/producers.html", {'products': products, 'user_id': user_id})
+    user_products_str = user.bought_products
+    user_products = user_products_str.split(', ')
+    all_products = Product.objects.all()
+    producers = []
+    for product in all_products:
+        if product.title in user_products:
+            if product.producer not in producers:
+                producer = get_object_or_404(Producer, title=product.producer)
+                producers.append(producer)
+    return render(request, "user/producers.html", {'user_id': user_id, 'producers': producers})
 
 
 def show_history(request, user_id):

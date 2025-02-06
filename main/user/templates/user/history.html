@@ -5,7 +5,9 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Нещодавні покупки</h1><br><br>
+    <h1>Нещодавні покупки</h1><br>
+    <a href="{% url 'user_menu' user_id=user_id %}">Назад</a><br><br>
+    <a href="shop">До магазину</a><br><br>
 
 {% for product in products %}
 <div>
@@ -16,7 +18,4 @@
 </div>
 {% endfor %}
 
-    <a href="shop">До магазину</a><br><br>
-
-    <a href="{% url 'user_menu' user_id=user_id %}">Назад</a>
 {% endblock %}
