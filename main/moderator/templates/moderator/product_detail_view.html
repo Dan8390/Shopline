@@ -1,0 +1,22 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}
+    <title>Product detail</title>
+{% endblock %}
+
+{% block content %}
+<div>
+    <h3>{{product.title}}</h3>
+    <h6>Категорія: {{product.category}}</h6>
+    <h6>Ціна: {{product.price}} грн</h6>
+    <h6>Виробник: {{product.producer}}</h6>
+    <h6>Опис: {{product.description}}</h6>
+    <h6>Є в наявності: {{product.amount}}</h6>
+    <a href="{% url 'product_delete' product.id %}">Видалити товар</a>
+
+    <br>
+    <br>
+</div>
+
+<a href="{% url 'show_products' %}">Назад</a>
+{% endblock %}

@@ -9,14 +9,8 @@
     {% for producer in producers %}
     <div>
         <h3>{{producer.title}}</h3>
-        <h6>Країна: {{producer.country}}</h6>
-        <h6>Товари: {{producer.products}}</h6>
-        <h6>Опис: {{producer.description}}</h6>
-        <h6>Офіційний сайт: {{producer.site}}</h6>
-        <h6>Електронна пошта: {{producer.email}}</h6>
-        <h6>Телефонні номери: {{producer.phone_numbers}}</h6>
 
-        <a href="{% url 'producer_delete' producer.id %}">Видалити виробника</a>
+        <a href="{% url 'producer_detail' producer_id=producer.id %}">Детальніше</a>
         <br>
         <br>
     </div>

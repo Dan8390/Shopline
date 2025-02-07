@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'main/layout.html' %}
 
-</body>
-</html>
+{% block title %}
+    <title>User delete</title>
+{% endblock %}
+
+{% block content %}
+
+<h1>Чи Ви впевнені, що хочете видалити цього користувача?</h1><br>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Так, видалити користувача</button>
+</form>
+<br>
+<a href="{% url 'user_detail' user_id=user.id %}">Ні, повернутись назад</a>
+{% endblock %}

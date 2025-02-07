@@ -1,0 +1,23 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}
+    <title>User detail</title>
+{% endblock %}
+
+{% block content %}
+<div>
+    <h3>{{user.username}}</h3>
+    <h6>Ім'я: {{user.name}}</h6>
+    <h6>Прізвище: {{user.surname}}</h6>
+    <h6>Електронна пошта: {{user.email}}</h6>
+    <h6>Номер телефону: {{user.phone_number}}</h6>
+    <h6>Країна: {{user.country}}</h6>
+    <h6>Покупки: {{user.bought_products}}</h6>
+    <a href="{% url 'user_delete' user.id %}">Видалити користувача</a>
+
+    <br>
+    <br>
+</div>
+
+<a href="{% url 'show_users' %}">Назад</a>
+{% endblock %}

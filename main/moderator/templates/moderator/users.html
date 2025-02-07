@@ -9,14 +9,9 @@
     {% for user in users %}
     <div>
         <h3>{{user.username}}</h3>
-        <h6>Ім'я: {{user.name}}</h6>
-        <h6>Прізвище: {{user.surname}}</h6>
-        <h6>Електронна пошта: {{user.email}}</h6>
-        <h6>Номер телефону: {{user.phone_number}}</h6>
-        <h6>Країна: {{user.country}}</h6>
-        <h6>Куплені товари: {{user.bought_products}}</h6>
 
-        <a href="{% url 'user_delete' user.id %}">Видалити акаунт</a>
+
+        <a href="{% url 'user_detail' user_id=user.id %}">Детальніше</a>
         <br>
         <br>
     </div>

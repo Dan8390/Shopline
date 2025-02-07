@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'main/layout.html' %}
 
-</body>
-</html>
+{% block title %}
+    <title>Product delete</title>
+{% endblock %}
+
+{% block content %}
+
+<h1>Чи Ви впевнені, що хочете видалити цей товар?</h1><br>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Так, видалити товар</button>
+</form>
+<br>
+<a href="{% url 'product_detail' product_id=product.id %}">Ні, повернутись назад</a>
+{% endblock %}
