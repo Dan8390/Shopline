@@ -1,0 +1,28 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}
+    <title>Registration</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Реєстрація</h1><br>
+    <form method="post">
+        {% csrf_token %}
+        <label>Введіть username:</label>
+        {{ form.username }}<br>
+        <label>Введіть пароль:</label>
+        {{ form.password }}<br>
+        <label>Введіть ім'я:</label>
+        {{ form.name }}<br>
+        <label>Введіть прізвище:</label>
+        {{ form.surname }}<br>
+        <label>Введіть електронну пошту:</label>
+        {{ form.email }}<br>
+        <label>Введіть номер телефону:</label>
+        {{ form.phone_number }}<br>
+        <label>Введіть країну:</label>
+        {{ form.country }}<br>
+        <button type="submit">Зберегти</button>
+    </form>
+
+{% endblock %}

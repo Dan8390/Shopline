@@ -2,8 +2,16 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import User, Product, Producer
 from .forms import UserForm
 from django.http import HttpResponse
+from django.views.generic import UpdateView
 
 # Create your views here.
+
+
+class UserUpdateView(UpdateView):
+    model = User
+    form_class = UserForm
+    template_name = 'user/update.html'
+    success_url = '../..'
 
 
 def show_user_menu(request, user_id):

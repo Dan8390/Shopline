@@ -1,10 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'main/layout.html' %}
 
-</body>
-</html>
+{% block title %}
+    <title>Product create</title>
+{% endblock %}
+
+{% block content %}
+<h1>Додавання товару</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label>Введіть назву:</label>
+        {{ form.title }}<br>
+        <label>Введіть категорію:</label>
+        {{ form.category }}<br>
+        <label>Введіть ціну:</label>
+        {{ form.price }}<br>
+        <label>Введіть виробника:</label>
+        {{ form.producer }}<br>
+        <label>Введіть опис:</label>
+        {{ form.description }}<br>
+        <label>Введіть доступну кількість:</label>
+        {{ form.amount }}<br>
+        <button type="submit">Зберегти</button>
+    </form>
+
+<a href="{% url 'show_products' %}">Назад</a>
+{% endblock %}

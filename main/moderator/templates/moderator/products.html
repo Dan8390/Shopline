@@ -6,6 +6,8 @@
 
 {% block content %}
     <h1>Магазин</h1><br>
+    <a href="{% url 'product_create' %}">Додати товар</a><br><br>
+
     {% for product in products %}
     <div>
         <h3>{{product.title}}</h3>

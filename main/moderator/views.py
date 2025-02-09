@@ -1,8 +1,9 @@
 import json
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from user.models import User, Product, Producer
 from django.views.generic import DeleteView
 from django.http import HttpResponse
+from .forms import ProductForm, ProducerForm
 
 # Create your views here.
 
@@ -37,6 +38,17 @@ def show_products(request):
 def show_product_detail(request, product_id):
     product = get_object_or_404(Product, id=product_id)
     return render(request, "moderator/product_detail_view.html", {'product': product})
+
+
+def product_create(request):
+    if request.method == 'POST':
+        form = ProductForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('..')
+    form = ProductForm()
+    data = {'form': form}
+    return render(request, 'moderator/product_create.html', data)
 
 
 def save_products_to_file(request):
@@ -128,6 +140,17 @@ def show_producers(request):
 def show_producer_detail(request, producer_id):
     producer = get_object_or_404(Producer, id=producer_id)
     return render(request, "moderator/producer_detail_view.html", {'producer': producer})
+
+
+def producer_create(request):
+    if request.method == 'POST':
+        form = ProducerForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('..')
+    form = ProducerForm()
+    data = {'form': form}
+    return render(request, 'moderator/producer_create.html', data)
 
 
 def save_producers_to_file(request):

@@ -1,10 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'main/layout.html' %}
 
-</body>
-</html>
+{% block title %}
+    <title>Producer create</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Додавання виробника</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label>Введіть назву:</label>
+        {{ form.title }}<br>
+        <label>Введіть країну:</label>
+        {{ form.country }}<br>
+        <label>Введіть товари:</label>
+        {{ form.products }}<br>
+        <label>Введіть опис:</label>
+        {{ form.description }}<br>
+        <label>Введіть офіційний сайт:</label>
+        {{ form.site }}<br>
+        <label>Введіть електронну пошту:</label>
+        {{ form.email }}<br>
+        <label>Введіть телефонні номери:</label>
+        {{ form.phone_numbers }}<br>
+        <button type="submit">Зберегти</button>
+    </form>
+
+<a href="{% url 'show_producers' %}">Назад</a>
+{% endblock %}

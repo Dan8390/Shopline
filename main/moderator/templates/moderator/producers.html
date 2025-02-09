@@ -6,6 +6,8 @@
 
 {% block content %}
     <h1>Виробники</h1><br>
+    <a href="{% url 'producer_create' %}">Додати виробника</a><br><br>
+
     {% for producer in producers %}
     <div>
         <h3>{{producer.title}}</h3>
